@@ -1,0 +1,196 @@
+
+// MEDIA BREAKPOINTS
+@mixin desktop-xlarge {
+    @media all and (max-width:1919.98px) {
+        @content;
+    }
+}
+@mixin desktop-large {
+    @media all and (max-width: 1599.98px) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media all and (max-width:1439.98px) {
+        @content;
+    }
+}
+@mixin desktop-small {
+    @media all and (max-width:1365.98px) {
+        @content;
+    }
+}
+@mixin tablet-large {
+    @media all and (max-width:1199.98px){
+        @content;
+    }
+}
+@mixin tablet {
+    @media all and (max-width:1023.98px) {
+        @content;
+    }
+}
+@mixin tablet-medium {
+    @media all and (max-width:991.98px) {
+        @content;
+    }
+}
+@mixin tablet-small {
+    @media all and (max-width:767.98px) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media all and (max-width: 575.98px) {
+        @content;
+    }
+}
+@mixin dflex-row-gap($value) {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap: $value;
+    @include tablet-medium using($value){
+        flex-direction:column;
+        gap:$value - 10px;
+    }
+}
+
+@mixin fSize48 {
+    font-size: 48px;
+    @include desktop-large {
+        font-size: 42px;
+    }
+    @include desktop-small {
+        font-size: 36px;
+    }
+    @include tablet-small {
+        font-size: 24px;
+    }
+}
+.bigHeader {
+    // font-family: 'Courier New', Courier, monospace;
+    font-size: 3.75em;
+    font-family: 'ArchivoBold', sans-serif;
+    @include lHeightBigH(75px);
+    @include desktop {
+        font-size: 3.25em;
+    }
+    @include tablet-small {
+        font-size: 2em;
+    }
+}
+.mediumHeader {
+    font-size: 2.5em;
+    font-family: 'ArchivoBold', sans-serif;
+    @include mBottomMHeader(45px);
+    color: $dark;
+    line-height: 50px;
+    @include desktop {
+        line-height: 40px;
+    }
+    @include tablet-large {
+        font-size: 2.5em;
+        line-height: 38px;
+    }
+    @include tablet-small {
+        font-size: 1.75em;
+        line-height: 34px;
+    }
+    h1, h2, h3, p {
+        font-size: 1em;
+        font-family: 'ArchivoBold', sans-serif;
+        color: $dark;
+        line-height: 50px;
+        margin-bottom:0;
+        @include desktop-xlarge {
+            margin-bottom:0;
+        }
+        @include desktop-large {
+            margin-bottom:0;
+        }
+        @include desktop {
+            line-height: 40px;
+        }
+        @include tablet-large {
+            font-size: 1em;
+            line-height: 38px;
+        }
+        @include tablet-small {
+            font-size: 1;
+            line-height: 34px;
+        }
+    }
+}
+.lineRightHeader {
+    position:relative;
+    width: 100%;
+    &:after {
+        width: 1.5px;
+        height: 60px;
+        background-color: $dark;
+        border-radius: 3px;
+        content:'';
+        position:absolute;
+        right: 0;
+        @include tablet-medium {
+            right: 48px;
+        }
+        @include tablet-small {
+            height:40px;
+        }
+        @include tablet-small {
+            display:none;
+        }
+    }
+}
+.smallHeader {
+    font-size: 1.75em;
+    color: $dark;
+    font-family: 'ArchivoBold', sans-serif;
+    @include lHeightSmallH(40px);
+    @include tablet-large {
+        font-size:1.5em;
+    }
+    @include tablet-small {
+        font-size: 1.3em;
+    }
+}
+.headerBoxes {
+    font-size: 1.375em;
+    color: $dark;
+    font-family: 'ArchivoBold', sans-serif;
+    line-height: 44px;
+    @include desktop-large {
+        line-height: 36px;
+    }
+    @include desktop-small {
+        line-height: 30px;
+    }
+    h1, h2, h3, p {
+        font-size: 1em;
+        color: $dark;
+        font-family: 'ArchivoBold', sans-serif;
+        line-height: 44px;
+        @include desktop-large {
+            line-height: 36px;
+        }
+        @include desktop-small {
+            line-height: 30px;
+        }
+    }
+}
+.thinHeader {
+    font-size: 1.125em;
+    font-family: 'ArchivoBold', sans-serif;
+    color: $dark;
+}
+.upHeader {
+    font-family: 'ArchivoBold', sans-serif;
+    color: $green;
+}
+.fixedHeader {
+    z-index: 10 !important;
+    position:fixed !important;
+    @include tVerySlow;
+}
